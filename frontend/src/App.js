@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import BASE_URL from "./config"; // ✅ import base URL
+import BASE_URL from "./config";
 
 import UserSelector from "./components/UserSelector";
 import ClaimButton from "./components/ClaimButton";
@@ -50,29 +50,31 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-xl mx-auto bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">🏆 Leaderboard</h1>
+    <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-white to-indigo-100 p-6 font-sans">
+      <div className="max-w-2xl mx-auto bg-white bg-opacity-90 shadow-2xl rounded-3xl p-10 border border-indigo-200 backdrop-blur-sm">
+        <h1 className="text-5xl font-extrabold text-center text-indigo-700 mb-8 tracking-tight drop-shadow-md">
+          🏆 Monthly Leaderboard
+        </h1>
 
         {/* Add New User */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-3 mb-8">
           <input
             type="text"
             placeholder="Enter new user name"
             value={newUser}
             onChange={(e) => setNewUser(e.target.value)}
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
+            className="flex-1 px-5 py-3 border border-indigo-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400 text-lg"
           />
           <button
             onClick={handleAddUser}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+            className="bg-gradient-to-r from-indigo-500 to-indigo-700 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition shadow-lg"
           >
-            Create
+            ➕ Create
           </button>
         </div>
 
         {/* User Selection + Claim */}
-        <div className="flex flex-col sm:flex-row gap-2 mb-6 justify-between items-center">
+        <div className="flex flex-col sm:flex-row gap-3 mb-6 justify-between items-center">
           <UserSelector
             users={users}
             selectedUser={selectedUser}
