@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
+import BASE_URL from "../config"; // ✅ Import the base URL
 
 const ClaimButton = ({ selectedUser, refreshLeaderboard }) => {
   const handleClaim = async () => {
     if (!selectedUser) return alert("Please select a user");
     try {
-      const res = await axios.post("http://localhost:5000/api/users/claim", {
+      const res = await axios.post(`${BASE_URL}/api/users/claim`, {
         userId: selectedUser,
       });
       alert(`${res.data.user.name} claimed ${res.data.pointsClaimed} points!`);

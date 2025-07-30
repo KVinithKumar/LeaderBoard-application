@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import BASE_URL from "./config"; // ✅ import base URL
+
 import UserSelector from "./components/UserSelector";
 import ClaimButton from "./components/ClaimButton";
 import Leaderboard from "./components/Leaderboard";
@@ -13,24 +15,24 @@ function App() {
   const [claimHistory, setClaimHistory] = useState([]);
 
   const fetchUsers = async () => {
-    const res = await axios.get("http://localhost:5000/api/users");
+    const res = await axios.get(`${BASE_URL}/api/users`);
     setUsers(res.data);
   };
 
   const fetchLeaderboard = async () => {
-    const res = await axios.get("http://localhost:5000/api/users/leaderboard");
+    const res = await axios.get(`${BASE_URL}/api/users/leaderboard`);
     setLeaderboard(res.data);
   };
 
   const fetchClaimHistory = async () => {
-    const res = await axios.get("http://localhost:5000/api/users/history");
+    const res = await axios.get(`${BASE_URL}/api/users/history`);
     setClaimHistory(res.data);
   };
 
   const handleAddUser = async () => {
     if (!newUser.trim()) return alert("Please enter a name");
     try {
-      await axios.post("http://localhost:5000/api/users", { name: newUser });
+      await axios.post(`${BASE_URL}/api/users`, { name: newUser });
       setNewUser("");
       fetchUsers();
       fetchLeaderboard();
@@ -80,7 +82,7 @@ function App() {
             selectedUser={selectedUser}
             refreshLeaderboard={() => {
               fetchLeaderboard();
-              fetchClaimHistory(); // also refresh history on claim
+              fetchClaimHistory();
             }}
           />
         </div>
