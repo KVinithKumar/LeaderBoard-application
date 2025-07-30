@@ -9,7 +9,8 @@ A dynamic and interactive leaderboard web app where users can be added, claim ra
 
 ## 📸 Preview
 
-![App Preview](preview.png) <!-- Replace with actual screenshot or URL -->
+<img width="1045" height="871" alt="image" src="https://github.com/user-attachments/assets/12564fe2-9b0b-4adb-830b-9eb0629f336d" />
+
 
 ---
 
